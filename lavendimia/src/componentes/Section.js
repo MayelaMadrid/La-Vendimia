@@ -10,13 +10,12 @@ import configuracion from './vistas/configuracion';
 //mport actualizarCliente from './vistas/actualizarCliente';
 
 
-
 class Section extends Component {
 
   render() {
       return (
     <section>
-      <div >
+      <div className="container" >
       {this.props.children}
       <Switch>
 

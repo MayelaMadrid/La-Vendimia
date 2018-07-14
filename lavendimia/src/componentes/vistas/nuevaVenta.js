@@ -31,6 +31,10 @@ componentDidMount(){
   this.getCatalogoC();
     this.getCatalogo();
 }
+componentWillMount(){
+swal("Para actualizar los valores de precios y totales de los articulos, da click en agregar cada que cambies la cantidad.");
+}
+
 
 
 nuevaVenta = _ => {
@@ -39,7 +43,10 @@ nuevaVenta = _ => {
     validacion=1;
   }
 articulos_recibidos.map((con, i) => {
-  if(con.cantidad === 0 || con.precio_iva ===0){
+  if(con.cantidad === 0 ){
+    validacion=1
+  }
+  if(con.precio_iva ===0){
     validacion=1
   }
 });
@@ -161,10 +168,6 @@ let lugar=e.target.getAttribute('lugar');
    articulos_recibidos.splice(lugar,1);
    console.log(lugar);
 
-
-//  }
-//});
-
 //console.log("se boroo");
 //console.log(articulos_recibidos);
  let importe=e.target.getAttribute('importe');
@@ -206,7 +209,10 @@ return   articulos_recibidos.map((art, i) => {
    )
  })}
 }
-
+reiniciar(){
+  articulos_recibidos=[];
+  ids=[];
+}
 
 
 obtenerArray() {
@@ -367,7 +373,7 @@ this.state.clientes.map((con, i) => {
 
                    </div>
                       <div className="float-right">
-                        <button type="submit" id="btn_cancelar" className=" mr-3 btn btn-danger">Cancelar</button>
+                       <Link to="catalogoVentas">  <button type="submit" id="btn_cancelar" className=" mr-3 btn btn-danger" onClick={this.reiniciar}>Cancelar</button></Link>
                       </div>
                  </div>
              </div>
@@ -380,7 +386,7 @@ this.state.clientes.map((con, i) => {
                         <Link to="catalogoVentas"> <button type="submit" id="btn_guardar" className="btn btn-success mr-3" onClick={this.nuevaVenta}>Guardar</button></Link>
                       </div>
                 <div className="float-right">
-                     <Link to="catalogoVentas">  <button id="btn_cancelar" type="submit" className="mr-3 btn btn-danger" >Cancelar</button></Link>
+                     <Link to="catalogoVentas">  <button id="btn_cancelar" type="submit" className="mr-3 btn btn-danger" onClick={this.reiniciar} >Cancelar</button></Link>
                       </div>
                     </div>
 </div>

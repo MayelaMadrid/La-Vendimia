@@ -3,11 +3,22 @@ import {
   Link
 } from 'react-router-dom';
 
-
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth()+1;
+        var yyyy = hoy.getFullYear();
 
 class Header extends Component {
+  componentWillMount(){
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
 
-    
+  }
+
   render() {
       return (
     <header>
@@ -29,8 +40,10 @@ class Header extends Component {
                   </div>
                 </li>
               </ul>
-            <div className="col-md-4 col-4 fecha mt-o mb-0 ">
-            <label  id="fecha"  className=" float-right text-white"> </label>
+              <div className="col-md-6 col-6 fecha mt-o mb-0 t ">
+            </div>
+            <div className="col-md-4 col-4 fecha mt-o mb-0 float-right ">
+            <label  id="fecha"  className=" float-right  text-white"> { dd+'/'+mm+'/'+yyyy} </label>
           </div>
         </nav>
       </div>
