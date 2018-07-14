@@ -1,0 +1,5 @@
+lavendimia -> contiene el front end ->npm start
+
+laVendimia2-> es el backend ->nodemon index.js
+para que puedan desplegarse los datos es necesario tener los dos abiertos, usando los comandos.
+para la base de datos utilice phpmyadmin
